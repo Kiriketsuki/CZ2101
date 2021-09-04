@@ -23,7 +23,7 @@ def insertion_sort(array):
     return array 
 
 
-def mergesort(array):
+def merge_sort(array):
 
     # If the array only got 1 element 
     if (len(array) > 1):
@@ -31,9 +31,9 @@ def mergesort(array):
         left = array[:mid]
         right = array[mid:]
 
-        mergesort(left)
+        merge_sort(left)
         # print(left, right)
-        mergesort(right)
+        merge_sort(right)
         
         merge(array, left, right)
     
@@ -84,28 +84,29 @@ def hybrid_sort(array, S):
         # print(left)
         # print(right)
 
-        mergesort(left)
-        mergesort(right)
+        merge_sort(left)
+        merge_sort(right)
 
         merge(array, left, right)
 
-        return array 
+    return array 
 
 
 
-array_10 = []
-
-for i in range(10):
-    array_10.append(random.randint(0, 9))
-
+array_10 = [0, 2, 5, 7, 1, 6, 3]
 array_10_copy = array_10
 
-print("Array", array_10)
-timer = time.perf_counter()
-print("Sorted Array: ", mergesort(array_10))
-print("Time take (Merge Sort) n = ", (time.perf_counter() - timer))
+# print("Array", array_10)
+# timer = time.perf_counter()
+# print("Sorted Array: ", mergesort(array_10))
+# print("Time take (Merge Sort) n = ", (time.perf_counter() - timer))
 
 print("Array", array_10_copy)
 timer = time.perf_counter()
-print("Sorted Array: ", hybrid_sort(array_10_copy, 7))
+print("Sorted Array: ", hybrid_sort(array_10_copy, 32))
 print("Time take (hybrid Sort) n = ", (time.perf_counter() - timer))
+
+print("Array", array_10)
+timer = time.perf_counter()
+print("Sorted Array: ", merge_sort(array_10))
+print("Time take (insertion Sort) n = ", (time.perf_counter() - timer))

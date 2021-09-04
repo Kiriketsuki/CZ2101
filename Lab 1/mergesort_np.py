@@ -135,19 +135,24 @@ array_correct_5 = np.array(sorted(array_test_5))
 #     print(f"Hybrid sorted correctly")
 
 for i in range(5):
-    S = calcMinRun(len(f"array_test_{i}"))
+
+    # timer = time.perf_counter()
+    # test = insertion_sort(np.copy(eval(f"array_test_{i}")))
+    # array_size = len(eval(f"array_test_{i}"))
+    # print(f"Time to sort array of size {array_size} is {time.perf_counter() - timer} seconds")
+    # if np.array_equal(test, eval(f"array_correct_{i}")):
+    #     print(f"Insertion sorted correctly")
+
     timer = time.perf_counter()
-    test = hybrid_sort(eval(f"array_test_{i}"), S)
+    test = hybrid_sort(np.copy(eval(f"array_test_{i}")), 7)
     array_size = len(eval(f"array_test_{i}"))
     print(f"Time to sort array of size {array_size} is {time.perf_counter() - timer} seconds")
     if np.array_equal(test, eval(f"array_correct_{i}")):
         print(f"Hybrid sorted correctly")
 
-
-for i in range(5):
     timer = time.perf_counter()
-    test = mergesort(eval(f"array_test_{i}_copy"))
-    array_size = len(eval(f"array_test_{i}_copy"))
+    test = mergesort(np.copy(eval(f"array_test_{i}")))
+    array_size = len(eval(f"array_test_{i}"))
     print(f"Time to sort array of size {array_size} is {time.perf_counter() - timer} seconds")
     if np.array_equal(test, eval(f"array_correct_{i}")):
-        print(f"Merge sorted correctly")
+        print(f"Merge sorted correctly \n")
