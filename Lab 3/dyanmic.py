@@ -99,7 +99,7 @@ class Knapsack:
                     print(f"{multiple} of Item {i}: \t", end = "")
                     print(row)
                 i += 1
-                if i > 4:
+                if i > len(self.original_items):
                     i = 1
                     multiple += 1
 
@@ -203,7 +203,7 @@ class Knapsack:
                     print(set)
                 i += 1
 
-                if i > 4:
+                if i > len(self.original_items):
                     i = 1
                     multiple += 1
         # print the solution
@@ -263,7 +263,7 @@ knapsack.add_item(Item(8, 9, 3))
 # print the solutions
 knapsack.add_multiples_of_items()
 knapsack.print_original_items()
-knapsack.print_solution_table(False)
+knapsack.print_solution_table(True)
 knapsack.print_solution_set(False)
 
 
